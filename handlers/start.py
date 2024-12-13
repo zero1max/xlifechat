@@ -7,7 +7,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 from keyboards.keybords import *
 
-ADMIN_ID = "5365352662"
+ADMIN_ID = 5365352662
 
 #-------------------------FOR HASH STATES -----------------------
 class HashState(StatesGroup):
@@ -36,10 +36,10 @@ async def start(msg: Message):
     db.create_table()
     db.add_user(user_id, full_name, surname)
     if msg.from_user.id == ADMIN_ID:
-        await msg.answer_sticker('CAACAgIAAxkBAAMHZdstv1FOKr6gphvJjivr8M8KsskAAlQAA0G1Vgxqt_jHCI0B-jQE')
-        await msg.answer("<b>Assalomu aleykum Muhammadjon!</b>")
+        await msg.answer_sticker('CAACAgIAAxkBAAN_Z1vQQPl7CoeFAVCslnkycvYbDPAAAiIBAAKmREgLEfW5zI8V9GY2BA')
+        await msg.answer("<b>Assalomu aleykum Xasan!</b>")
     else:
-        await msg.answer_sticker('CAACAgIAAxkBAAMHZdstv1FOKr6gphvJjivr8M8KsskAAlQAA0G1Vgxqt_jHCI0B-jQE')
+        await msg.answer_sticker('CAACAgIAAxkBAAN_Z1vQQPl7CoeFAVCslnkycvYbDPAAAiIBAAKmREgLEfW5zI8V9GY2BA')
         await msg.answer(
             f"<b>Assalomu aleykum, {msg.from_user.full_name}!</b> 😊\n"
             f"👨🏻‍💻 <b>Mening shaxsiy botimga xush kelibsiz!</b>\n\n"
@@ -57,9 +57,9 @@ async def start(msg: Message):
         await check_subscription(msg)
         
 async def check_subscription(message: Message):
-    channel_ids = ["@xlife_7", "@xlifemovies"]  # Kanal username'lari yoki ID'lari
+    channel_ids = ["@xlifeuz", "@xlifemovies"]  # Kanal username'lari yoki ID'lari
     channel_urls = {
-        "@xlife_7": "https://t.me/xlife_7",
+        "@xlifeuz": "https://t.me/xlifeuz",
         "@xlifemovies": "https://t.me/xlifemovies"
     }
     user_id = message.from_user.id
