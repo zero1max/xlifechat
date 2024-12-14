@@ -42,16 +42,8 @@ async def start(msg: Message):
         await msg.answer_sticker('CAACAgIAAxkBAAN_Z1vQQPl7CoeFAVCslnkycvYbDPAAAiIBAAKmREgLEfW5zI8V9GY2BA')
         await msg.answer(
             f"<b>Assalomu aleykum, {msg.from_user.full_name}!</b> 😊\n"
-            f"👨🏻‍💻 <b>Mening shaxsiy botimga xush kelibsiz!</b>\n\n"
-            f"<b>Bot haqida qisqacha ma'lumot:</b>\n"
-            f"/id - O'zingizning Telegram ID raqamingizni bilish uchun bu buyruqni ishlating.\n"
-            f"/hash - Matningizni kriptografik xesh kodga aylantirish. "
-            f"Bu funksiya orqali siz ma'lumotlaringizni xavfsiz saqlashingiz mumkin. Xeshlangan ma'lumotlar qayta tiklanmaydi, "
-            f"bu esa parollar va shaxsiy ma'lumotlarni himoya qilish uchun juda foydali.\n"
-            f"/help - Bot imkoniyatlari va undan foydalanish bo'yicha to'liq ma'lumot olish.\n"
-            f"/info - Bot yaratilish tarixi va dasturchi haqida qisqacha ma'lumot.\n\n"
-            f"Yana savollaringiz yoki takliflaringiz bo'lsa, bemalol yozishingiz mumkin! "
-            f"Botimizdan foydalanayotganingizdan xursandmiz! 😊")
+            f"👨🏻‍💻 <b>Mening shaxsiy botimga xush kelibsiz!</b>\n\n"           
+            f"Botimdan foydalanayotganingizdan xursandman! 😊")
 
 
         await check_subscription(msg)
@@ -112,7 +104,7 @@ async def answeruser(call: CallbackQuery, state: FSMContext):
     user_id = call.data.split(':')
     await state.update_data(user_id = user_id[1])
     await state.set_state(Answer.asnwer)
-    await bot.send_message(ADMIN_ID, text= f"ID: {user_id[1]}\nJavob yozishingiz mumkin Muhammadjon")
+    await bot.send_message(ADMIN_ID, text= f"ID: {user_id[1]}\nJavob yozishingiz mumkin Xasan")
 
 @router.message(Answer.asnwer)
 async def answer(msg:Message, state:FSMContext):
@@ -170,21 +162,8 @@ async def echo_id(msg: Message):
 #------------------------------------------------HELP------------------------------------------------------
 @router.message(Command('help'))
 async def help(msg: Message):
-    await msg.reply("<b>Botda qandaydur uzulushlar yoki muammolar yuzaga kelsa @zero_1_max ga murojaat qiling!</b>")
+    await msg.reply("<b>Murojaat uchun @xxa571 !</b>")
 
-#------------------------------------------------INFO-------------------------------------------------------
-@router.message(Command('info'))
-async def info(msg: Message):
-    await msg.answer(
-        "<b>Bot haqida ma'lumot:</b>\n\n"
-        "Bu bot sizga bir qancha qulay xizmatlarni taqdim etish uchun yaratilgan. "
-        "Bot orqali siz o'zingizning ID raqamingizni bilib olishingiz, matnlaringizni xavfsiz tarzda hashlashingiz, "
-        "yoki boshqa foydali buyruqlardan foydalanishingiz mumkin.\n\n"
-        "<b>Yaratilgan sana:</b> 2024 yil, avgust\n"
-        "<b>Dasturchi:</b> @zero_1_max\n\n"
-        "Dasturchi bilan bog'lanish yoki qo'shimcha savollar uchun yuqoridagi username orqali murojaat qilishingiz mumkin. "
-        "Botimizdan foydalanayotganingiz uchun tashakkur! 😊"
-    )
 
 #------------------------------------------------Sticker--------------------------------------------------------
 @router.message(F.sticker)
